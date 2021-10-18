@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	 <div id='tab'>111</div>  <!-- 순서를 위로. -->
+
+	<script type="text/javascript">
+		var city = ['서울', '부산', '대전']
+		var joindata1 = city.join()
+		var joindata2 = city.join('-그리고') /*합쳐진 결과값이 들어감*/
+		document.write('결과 1: ' + joindata1 + "<br>")
+		document.write('결과 2: ' + joindata2 + "<br>")
+		
+		var p1 = city.push('대구', '강원도') /*제일 마지막에 추가하는 기능*/
+		document.write('push : ' + p1 + "<br>")
+		document.write('city : ' + city + "<br>")
+		
+		city.pop() /*제일 뒤쪽에 있는 값을 빼는 기능*/
+		document.write('city : ' + city + "<br>")
+		
+		city.unshift('강원도') /*제일 앞쪽에 추가되는 기능 */
+		document.write('city : ' + city + "<br>")
+		
+		city.shift() /*앞쪽부터 값을 빼는 기능*/
+		document.write('city : ' + city + "<br>")
+		
+		for(i=0; i<city.length; i++) {
+			document.write("for: " + city[i] + "<br>")
+		}
+		
+		function testArr(item, index){
+			//document.write("실행 : " + item + "<br>")
+			document.write("실행 : " + item + index + "<br>")
+		}
+		city.forEach(testArr) /*forEach는 city가 가지고 있는 값만큼 함수를 반복*/
+		
+		//배열에 1~10까지 저장 후 합 구하기
+		var data = [1,2,3,4,5,6,7,8,9,10]
+		var sum = 0
+		function sumFunc(item){
+			sum += item
+		}
+		data.forEach(sumFunc)
+		document.write("1~10 합 : " + sum + "<br>")
+		
+		var data = {'key1': 100, 'key2': 200}
+		document.write(data.key1 + ", "  + data['key2'] + "<br>")
+		
+		var data = [
+			{'id': 111, 'name': '홍길동1', 'addr': '산골짜기1'}, 
+			{'id': 123, 'name': '홍길동2', 'addr': '산골짜기2'}, 
+			{'id': 156, 'name': '홍길동3', 'addr': '산골짜기3'}
+			]
+		html = "<table border='1'><tr><th>id</th><th>name</th><th>addr</th></tr>"
+		function printData(items){
+			html += "<tr>"
+			html += "<td>" + items.id + "</td>"
+			html += "<td>" + items.name + "</td>"
+			html += "<td>" + items['addr'] + "</td>"
+			html += "</tr>"
+			document.write(items.id + items.name + items['addr'] + "<br>")
+			console.log(items)
+		}
+		data.forEach(printData)
+		html += "</table>"
+		document.getElementById('tab').innerHTML = html
+		
+	</script>
+</body>
+</html>
